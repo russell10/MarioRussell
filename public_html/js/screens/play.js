@@ -5,8 +5,17 @@ game.PlayScreen = me.ScreenObject.extend({
 	onResetEvent: function() {
 		// reset the score
 		game.data.score = 0;
+                
+                me.levelDirector.loadLevel("Russell01");
+                
+                var player = me.pool.pull("mario", 0, 420, {});
+                me.game.world.addChild(player, 3)
 
-		// add our HUD to the game world
+	        me.input.bindKey(me.input.KEY.RIGHT, "right");
+            
+            
+            
+            // add our HUD to the game world
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
 	},
