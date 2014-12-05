@@ -13,10 +13,13 @@ game.PlayerEntity = me.Entity.extend({
        }]);
        
        this.renderable.addAnimation("idle", [3]);
+       //create an animation called smallWalk using picture of the image defined above (mario)
+       //sets the animation to rn through pictures 8-13
+       //the lasts number says we switch between pictures every 80 millseconds
        this.renderable.addAnimation("smallWalk", [8, 9, 10, 11, 12, 13], 80);
        
        this.renderable.setCurrentAnimation("idle");
-       
+       //sets the speed we go on the x axis (first number) and y axis (second number)
        this.body.setVelocity(5, 20);
    },
    
@@ -41,9 +44,20 @@ game.PlayerEntity = me.Entity.extend({
            this.body.vel.y -= this.body.accel.y / me.timer.tick;
        }
             
+        if(this.body.vel.x !== 0) {   
+            if (!this.renderable.isCurrentAnimation("smallWalk")) {
+                this.renderable.setCurrentAnimation("smallWalk");
+                this.renderable.setAnimationFrame();
+                
+            }    
+        }else{
+            this.renderable.setCurrentAnimation("idle");
+        }
+            
       this.body.update(delta);
       this._super(me.Entity, "update", [delta]); 
       return true;
    }
     
 });
+
