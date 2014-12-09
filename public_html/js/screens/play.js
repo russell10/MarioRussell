@@ -7,8 +7,8 @@ game.PlayScreen = me.ScreenObject.extend({
 		game.data.score = 0;
                 
                 me.levelDirector.loadLevel("Russell01");
-                
-               this.resetPlayer(0, 400);
+                //this determines where my player will start from after i go thru the door
+               this.resetPlayer(0, 40);
 
 	        me.input.bindKey(me.input.KEY.RIGHT, "right");
                 me.input.bindKey(me.input.KEY.LEFT, "left");
