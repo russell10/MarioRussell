@@ -19,6 +19,9 @@ game.TitleScreen = me.ScreenObject.extend({
 \n\
 \n\
 ", 450, 130);
+                        //this code under here tells what it is going to say on the title screen
+             
+                        
                         this.font.draw(renderable.getContext(), "Press ENTER to play!", 250, 530);
                     }
                     
